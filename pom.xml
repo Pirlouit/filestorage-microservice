@@ -46,7 +46,6 @@
 	               <repository>${docker.image.prefix}/${project.artifactId}</repository>
 	           </configuration>
 	       </plugin>
-				 <!--
 	       <plugin>
 			    <groupId>org.apache.maven.plugins</groupId>
 			    <artifactId>maven-dependency-plugin</artifactId>
@@ -69,7 +68,6 @@
 			        </execution>
 			    </executions>
 			</plugin>
-		-->
 		</plugins>
 	</build>
 
