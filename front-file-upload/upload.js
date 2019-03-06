@@ -5,7 +5,10 @@ form.addEventListener('submit', e => {
     e.preventDefault();
 
     const files = document.querySelector('[type=file]').files;
-    if(files.length == 0) return;
+    if(files.length == 0){
+      console.error("No files to upload");
+      return;
+    }
 
     const formData = new FormData();
 
@@ -18,5 +21,10 @@ form.addEventListener('submit', e => {
     fetch(url,{
         method: 'POST',
         body: formData
+    }).then(function(response){
+      if(response.ok)
+        console.log("File uploaded sucessfully.");
+      else
+        console.error("An error " + response.status + " occured...");
     });
 });
