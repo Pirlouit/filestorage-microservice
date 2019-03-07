@@ -18,14 +18,14 @@ import fil.pji.devops.filemanager.property.FileStorageProperties;
     FileStorageProperties.class
 })
 public class FilemanagerApplication {
-	
+
 	@Autowired
     private Environment env;
 
 	public static void main(String[] args) {
 		SpringApplication.run(FilemanagerApplication.class, args);
 	}
-	
+
 	@Bean
     public WebMvcConfigurer corsConfigurer() {
 		return new WebMvcConfigurer() {

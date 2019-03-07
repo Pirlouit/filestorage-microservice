@@ -18,7 +18,10 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 @Service
 public class FileStorageService {
@@ -71,7 +74,8 @@ public class FileStorageService {
         }
     }
     
-    public File[] listFiles(){
-    	return fileStorageLocation.toFile().listFiles(x -> x.isFile());
+    public List<String> listFiles(){
+    	File[] files = fileStorageLocation.toFile().listFiles(x -> x.isFile());
+    	return Arrays.asList(files).stream().map(f -> f.getName()).collect(Collectors.toList());
     }
 }

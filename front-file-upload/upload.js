@@ -1,4 +1,4 @@
-const baseUrl = 'http://localhost:8080/';
+const baseUrl = 'http://localhost:8080/uploadFile';
 const form = document.querySelector('form');
 
 form.addEventListener('submit', e => {
@@ -16,7 +16,7 @@ form.addEventListener('submit', e => {
         formData.append('file' + (files.length > 1 ? 's' : ''), files[i]);
     }
 
-    var url = baseUrl + (files.length > 1 ? "uploadMultipleFiles" : "uploadFile");
+    var url = baseUrl + (files.length > 1 ? "s" : "");
 
     fetch(url,{
         method: 'POST',

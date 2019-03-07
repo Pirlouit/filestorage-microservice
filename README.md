@@ -2,7 +2,7 @@
 Pirlouit PROVIS
 
 You can retreive this image from DockerHub.  
-pull: `docker pull pirlouitprovis/filemanager:release`
+pull: `docker pull pirlouitprovis/filemanager:release`  
 run: `docker run -p 8080:8080 -t pirlouitprovis/filemanager:release`
 #### Build and run with docker
 To build the image: `sudo ./mvnw install dockerfile:build`  
@@ -24,5 +24,14 @@ file.upload-dir=/home/user/Documents/fileStorage
 ```
 
 Once it runs, you can test it by using the `index.html` file in the `front-file-upload` folder.  
-On the web page, there is a button to add a file and another to upload the file.
-Once you have uploaded a file you can check the files contained by going to http://localhost:8080/listFiles  
+
+###### Upload a file
+POST http://localhost:8080/uploadFile  
+  Body: (form-data) file
+###### Upload multiple files
+POST http://localhost:8080/uploadFiles  
+  Body: (form-data) files
+###### Download a file
+GET http://localhost:8080/downloadFile/{fileName}
+###### List files
+GET http://localhost:8080/listFiles  
